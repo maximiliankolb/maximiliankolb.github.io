@@ -1,0 +1,11 @@
+FROM registry.fedoraproject.org/fedora-minimal:39
+
+LABEL maintainer="Maximilian Kolb"
+LABEL org.website="https://github.com/maximiliankolb/maximiliankolb.github.io"
+
+# hadolint ignore=DL3041
+RUN microdnf install -y --nodocs --setopt install_weak_deps=0 \
+      make \
+      rubygem-asciidoctor && \
+    microdnf clean all && \
+    rm -fr /var/cache/libdnf5/

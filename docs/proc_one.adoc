@@ -1,0 +1,9 @@
+[id="one"]
+= One
+
+some text
+
+[source,bash]
+----
+$ uptime
+----
