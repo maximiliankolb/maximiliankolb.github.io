@@ -1,0 +1,50 @@
+---
+name: "Build and deploy docs"
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    tags: ["*"]
+  pull_request:
+    branches: ["*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+concurrency:
+  cancel-in-progress: false
+  group: "pages"
+
+jobs:
+  build_docs:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout git repository"
+        uses: actions/checkout@v4
+      - name: "Pull container image"
+        run: "docker pull ghcr.io/maximiliankolb/docs:1.0.0"
+      - name: "Retag container image"
+        run: "docker tag ghcr.io/maximiliankolb/docs:1.0.0 docs"
+      - name: "Workaround to use podman in Makefile"
+        run: sed -i "s/podman/docker/g" Makefile
+      - name: "Workaround to use minimal container image"
+        run: sed -i "s/docs-minimal/docs/g" Makefile
+      - name: "Workaround to use non-interactive container in Makefile"
+        run: sed -i "s/-it//g" Makefile
+      - name: "Build docs"
+        run: make html
+      - name: "Setup Github Pages"
+        uses: actions/configure-pages@v5
+      - name: "Upload built docs"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "github-pages"
+      - name: "Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v4
+...
