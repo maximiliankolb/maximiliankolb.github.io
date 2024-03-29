@@ -1,0 +1,16 @@
+= docs
+
+.Build container image
+----
+$ make container_image
+----
+
+.Build docs
+----
+$ make html
+----
+
+.View docs in browser
+----
+$ make browser
+----

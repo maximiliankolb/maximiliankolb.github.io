@@ -1,0 +1,33 @@
+---
+name: "Build and publish container image"
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    tags: ["*"]
+    branches: ["*"]
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: "Checkout git repository"
+        uses: actions/checkout@v4
+      - name: "Log in to Github Container Registry"
+        uses: docker/login-action@v3
+        with:
+          password: "${{ secrets.GITHUB_TOKEN }}"
+          registry: "ghcr.io"
+          username: "${{ github.actor }}"
+      - name: "Ignore all files when building container image"
+        run: echo "*" > docs/Containerfile.dockerignore
+      - name: "Build and push container image"
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: "docs/Containerfile"
+          push: true
+          tags: "ghcr.io/maximiliankolb/docs:${{ github.ref_name }}"
+...

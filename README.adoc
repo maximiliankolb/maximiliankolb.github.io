@@ -1,1 +1,7 @@
 = maximiliankolb.github.io
+
+image::https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml/badge.svg[GHA to build container image,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml]
+
+== `docs/`
+
+PoC to build docs based on `.adoc` files and `asciidoctor`
