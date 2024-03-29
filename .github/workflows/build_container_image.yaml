@@ -4,7 +4,6 @@ name: "Build and publish container image"
 on:  # yamllint disable-line rule:truthy
   push:
     tags: ["*"]
-    branches: ["*"]
 
 jobs:
   build_and_publish:
