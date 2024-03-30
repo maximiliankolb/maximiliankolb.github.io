@@ -1,0 +1,9 @@
+= Contributing
+
+https://github.com/maximiliankolb/maximiliankolb.github.io/[github.com/maximiliankolb/maximiliankolb.github.io] is an open playground.
+
+== Workflow
+
+. Branch `main`
+. Apply changes
+. Open a PR
