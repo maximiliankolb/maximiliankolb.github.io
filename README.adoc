@@ -1,7 +1,10 @@
 = maximiliankolb.github.io
 
-image::https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml/badge.svg[GHA to build container image,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml]
+image:https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml/badge.svg[GHA to build container image,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml]
+image:https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/deploy_docs.yaml/badge.svg[GHA to build and deploy docs,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/deploy_docs.yaml]
 
 == `docs/`
 
-PoC to build docs based on `.adoc` files and `asciidoctor`
+* Deploy built docs to https://maximiliankolb.github.io/[maximiliankolb.github.io]
+* Limit GHA to build and deploy tags to save resources
+* PoC to build docs based on `.adoc` files and `asciidoctor`
