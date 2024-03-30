@@ -1,0 +1,24 @@
+---
+name: "Lint Containerfiles"
+
+on:  # yamllint disable-line rule:truthy
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint_containerfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout git repository"
+        uses: actions/checkout@v4
+      - name: "Download hadolint"
+        run: wget https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64  # yamllint disable-line rule:line-length
+      - name: "Download checksums for hadolint"
+        run: wget https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64.sha256  # yamllint disable-line rule:line-length
+      - name: "Install hadolint"
+        run: sha256sum --check hadolint-Linux-x86_64.sha256
+      - name: "Make hadolint executable"
+        run: chmod +x hadolint-Linux-x86_64
+      - name: "Lint Containerfiles"
+        run: find . -type f -iname "Containerfile" -o -iname "*.Containerfile" | xargs ./hadolint-Linux-x86_64 --verbose  # yamllint disable-line rule:line-length
+...
