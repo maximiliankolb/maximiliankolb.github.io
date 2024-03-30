@@ -5,5 +5,6 @@ image:https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflo
 
 == `docs/`
 
-* PoC to build docs based on `.adoc` files and `asciidoctor`
 * Deploy built docs to https://maximiliankolb.github.io/[maximiliankolb.github.io]
+* Limit GHA to build and deploy tags to save resources
+* PoC to build docs based on `.adoc` files and `asciidoctor`

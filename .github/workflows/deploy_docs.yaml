@@ -4,8 +4,6 @@ name: "Build and deploy docs"
 on:  # yamllint disable-line rule:truthy
   push:
     tags: ["*"]
-  pull_request:
-    branches: ["*"]
   workflow_dispatch:
 
 permissions:
