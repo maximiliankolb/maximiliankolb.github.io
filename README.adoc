@@ -1,7 +1,7 @@
 = maximiliankolb.github.io
 
-image::https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml/badge.svg[GHA to build container image,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml]
-image::https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/deploy_docs.yaml/badge.svg[GHA to build and deploy docs,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/deploy_docs.yaml]
+image:https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml/badge.svg[GHA to build container image,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/build_container_image.yaml]
+image:https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/deploy_docs.yaml/badge.svg[GHA to build and deploy docs,link=https://github.com/maximiliankolb/maximiliankolb.github.io/actions/workflows/deploy_docs.yaml]
 
 == `docs/`
 
